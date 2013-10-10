@@ -6,11 +6,16 @@
 - title: Articles
   url: /articles/
 
-- title: Blog
-  url: /blog/
+# - title: Blog
+#   url: /blog/
 
-- title: Theme Setup
-  url: /theme-setup/
+- title: Code
+  url: https://github.com/kamui
+  external: true
+
+- title: CV
+  url: http://careers.stackoverflow.com/jackchu
+  external: true
 
 - title: Search
   url: /search/

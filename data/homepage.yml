@@ -1,0 +1,210 @@
+# showcase
+showcase:
+  enable: true
+  title: "Hello, I’m Jack."
+  subtitle: "Technology Leader"
+  description: "I'm the CTO at <a target='_blank' href='https://modern-age.com/'>Modern Age</a>, a wellness startup helping people live longer, healthier lives by giving them the tools to take control of their own aging journey."
+  image:
+    x: "img/showcase/design-sprint.png"
+    _2x: "img/showcase/design-sprint@2x.png"
+  imageMobile:
+    x: "img/showcase/design-sprint-mobile.jpg"
+
+  button:
+    icon: "icon-mail-fill"
+    btnText: "Contact"
+    URL: "mailto:jack@jackchu.com"
+
+  socialLinks:
+    - icon: "linkedin"
+      URL: "https://www.linkedin.com/in/jack-chu"
+
+    - icon: "github"
+      URL: "https://github.com/kamui"
+
+    - icon: "twitter"
+      URL: "https://twitter.com/jack_chu"
+
+    - icon: "instagram"
+      URL: "https://www.instagram.com/jackseviltwin"
+
+# about
+about:
+  enable: true
+  title: "Who am I?"
+  content: '<p class="lead">
+    My passion is building amazing teams that build just as amazing digital products. My background in software engineering started in web based backend APIs and then later expanded to web frontend expertise and systems architecture.
+    </p>
+    <p class="lead">
+    Later, I found that building teams and leadership was even more fun and challenging, but also let me scale up my ability impact the product and the business.
+    </p>
+    '
+  button:
+    icon: "icon-smile-fill"
+    btnText: "About Me"
+    URL: "https://www.linkedin.com/in/jack-chu"
+  image:
+    x: "img/who-am-i/jack-picture.png"
+    _2x: "img/who-am-i/jack-picture@2x.png"
+
+# education
+education:
+  enable: true
+  title: "Education"
+  items:
+    - university: "Baruch College"
+      year: "2004-2007"
+      degree: "Computer Information Systems (CIS) BBA"
+
+    - university: "New York University - Polytechnic School of Engineering"
+      year: "1997-1999"
+      degree: "Computer Science"
+
+# experience
+experience:
+  enable: true
+  title: "Experience"
+  description: "Over 25+ years of experience as an Engineer, 5+ years as a people manager and leader. Most of my career has been in E-commerce, but I love doing things I've never done before and branching out!"
+  button:
+    icon: "icon-linkedin-fill"
+    btnText: "Linkedin"
+    URL: "https://www.linkedin.com/in/jack-chu"
+
+  items:
+    - title: "CTO"
+      company: "Modern Age"
+      duration: "Sep 2021 - Present"
+
+    - title: "VP of Engineering"
+      company: "Away"
+      duration: "Oct 2018 - Mar 2021"
+
+    - title: "Director of Engineering"
+      company: "Bonobos"
+      duration: "Jan 2015 - Oct 2018"
+
+# # Client & Work
+# client_and_work:
+#   title: "Clients & Works"
+#   enable: true
+
+#   clients:
+#     - logo:
+#         x: "img/clients/asgardia.png"
+#         _2x: "img/clients/asgardia@2x.png"
+#       alt: "Asgardia"
+
+#     - logo:
+#         x: "img/clients/earth-2.png"
+#         _2x: "img/clients/earth-2@2x.png"
+#       alt: "Earth 2.0"
+
+#     - logo:
+#         x: "img/clients/goldline.png"
+#         _2x: "img/clients/goldline@2x.png"
+#       alt: "Goldline"
+
+#     - logo:
+#         x: "img/clients/kanba.png"
+#         _2x: "img/clients/kanba@2x.png"
+#       alt: "Kanba"
+
+#     - logo:
+#         x: "img/clients/zoo-tv.png"
+#         _2x: "img/clients/zoo-tv@2x.png"
+#       alt: "Zoo"
+
+#     - logo:
+#         x: "img/clients/ztos.png"
+#         _2x: "img/clients/ztos@2x.png"
+#       alt: "Ztos"
+
+#   works:
+#     - title: "Radity Finance - UI Kit"
+#       description: "We have been receiving a lot of requests for a Finance Kit recently due to the popularity of Fintech."
+#       button:
+#         icon: "icon-arrow-right"
+#         btnText: "Case Study"
+#         URL: "#"
+#       image:
+#         x: "img/works/radity-finance.jpg"
+#         _2x: "img/works/radity-finance@2x.jpg"
+#       is_even: true
+
+#     - title: "Swiss Fintech Website"
+#       description: "The Swiss Finance + Technology Association is the leading FinTech hub in Switzerland."
+#       button:
+#         icon: "icon-arrow-right"
+#         btnText: "Case Study"
+#         URL: "#"
+#       image:
+#         x: "img/works/swissfintech.jpg"
+#         _2x: "img/works/swissfintech@2x.jpg"
+#       is_even: false
+
+#     - title: "Robo Advisor"
+#       description: "Robo Advisor is a Swiss Wealth Manager and wants to create the best digital experience for its UNHW clients across the world. We started with a whiteboard."
+#       button:
+#         icon: "icon-arrow-right"
+#         btnText: "Case Study"
+#         URL: "#"
+#       image:
+#         x: "img/works/robo-advisor.jpg"
+#         _2x: "img/works/robo-advisor@2x.jpg"
+#       is_even: true
+
+# # testimonial
+# testimonial:
+#   enable: true
+#   title: "Testimonials"
+#   items:
+#     - name: "Daniel Jordan"
+#       position: "Phonet, CEO"
+#       content: "Cold calling can be a great way to generate quality leads. You get to speak to the gatekeepers and stakeholders, and you get a great insight into their requirements and influences. But cold calling is an art-form. It can be daunting, it’s always a lot of work, and you always need to make a good impression."
+#       image:
+#         x: "img/testimonials/daniel-jordan.jpg"
+#         _2x: "img/testimonials/daniel-jordan@2x.jpg"
+
+#     - name: "Jonathan Peters"
+#       position: "Textic, CEO"
+#       content: "Whether you or your loved one is encountering the natural decrease in mobility that occurs with the passing of time, or deals with an illness-related lack of physical agility, a stair lift can be the ideal way to put you in charge of your home again. Regardless of the shape or make of your living accommodation."
+#       image:
+#         x: "img/testimonials/jonathan-peters.jpg"
+#         _2x: "img/testimonials/jonathan-peters@2x.jpg"
+
+#     - name: "Antonio Willis"
+#       position: "Cyberse, CEO"
+#       content: "In this digital generation where information can be easily obtained within seconds, business cards still have retained their importance in the achievement of increased business exposure and business sales. If your business already has a bunch of printed cards distributed to a number of potential customers and yet."
+#       image:
+#         x: "img/testimonials/antonio-willis.jpg"
+#         _2x: "img/testimonials/antonio-willis@2x.jpg"
+
+# contact
+# contact:
+#   enable: true
+#   title: "Contact"
+#   form:
+#     action: "#"
+#     full_name: "Full Name"
+#     email: "Email Address"
+#     message: "Type Your Message Here"
+#   # phone:
+#   #   title: "Phone Number"
+#   #   number: "+41 (44) 505 10 99"
+#   email:
+#     title: "Email"
+#     email: '<a href="mailto:jack@jackchu.com">jack@jackchu.com</a>'
+#   # address:
+#   #   title: "Address"
+#   #   address: "Radity GmbH<br />Max-Bill-Platz 5, 8050 Zürich"
+#   button:
+#     icon: "icon-mail-fill"
+#     btnText: "Send Message"
+
+# # newsletter
+# newsletter:
+#   enable: true
+#   title: "Newsletter subscription"
+#   success_message: "Successfully subscribed"
+#   error_message: "Error while subscribing."
+#   note: "We'll never share your email with anyone else."

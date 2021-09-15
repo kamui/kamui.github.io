@@ -2,7 +2,7 @@
 showcase:
   enable: true
   title: "Hello, I’m Jack."
-  subtitle: "Technology Leader"
+  subtitle: "Technologist"
   description: "I'm the CTO at <a target='_blank' href='https://modern-age.com/'>Modern Age</a>, a wellness startup helping people live longer, healthier lives by giving them the tools to take control of their own aging journey."
   image:
     x: "img/showcase/design-sprint.png"
@@ -82,7 +82,6 @@ experience:
     - title: "Director of Engineering"
       company: "Bonobos"
       duration: "Jan 2015 - Oct 2018"
-
 # # Client & Work
 # client_and_work:
 #   title: "Clients & Works"

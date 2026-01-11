@@ -70,6 +70,6 @@ theme = "raditian-free-hugo-theme"
   [params.footer]
       copyright = "© Jack Chu. All rights reserved."
       [params.footer.radity_logo]
-        x = "img/general/lower-logo.png"
-        _2x = "img/general/lower-logo@2x.png"
+        x = "img/general/design-and-code-radity.png"
+        _2x = "img/general/design-and-code-radity@2x.png"
         alt = "Design & Code - Radity"

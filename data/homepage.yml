@@ -3,7 +3,7 @@ showcase:
   enable: true
   title: "Hello, I’m Jack."
   subtitle: "Technologist"
-  description: "I'm the VP of Technology at <a target='_blank' href='https://givelegacy.com/'>Legacy</a>, a health startup helping make male fertility more accessible."
+  description: "I'm the CTO at <a target='_blank' href='https://fete.com/'>fête</a>, a modern gifting shopping platform."
   image:
     x: "img/showcase/design-sprint.png"
     _2x: "img/showcase/design-sprint@2x.png"
@@ -64,16 +64,20 @@ education:
 experience:
   enable: true
   title: "Experience"
-  description: "Over 25+ years of experience in Technology, 18+ years as an Engineer, 5+ years as a people manager and technology leader. Most of my career has been in E-commerce and now health, but I love doing things I've never done before and branching out!"
+  description: "Over 28+ years of experience in Technology, 18+ years as an Engineer, 10+ years as a people manager and technology leader. Most of my career has been in E-commerce, but also have some experience in health/wellness, but I love doing things I've never done before and branching out!"
   button:
     icon: "icon-linkedin-fill"
     btnText: "Linkedin"
     URL: "https://www.linkedin.com/in/jack-chu"
 
   items:
+    - title: "CTO"
+      company: "fête"
+      duration: "Nov 2025 - Present"
+
     - title: "VP of Technology"
       company: "Legacy"
-      duration: "Jan 2024 - Present"
+      duration: "Jan 2024 - June 2025"
 
     - title: "CTO"
       company: "Modern Age"

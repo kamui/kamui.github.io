@@ -2,8 +2,8 @@
 showcase:
   enable: true
   title: "Hello, I’m Jack."
-  subtitle: "Technologist"
-  description: "I'm the CTO at <a target='_blank' href='https://fete.com/'>fête</a>, a modern gifting shopping platform."
+  subtitle: "CTO / VP Engineering"
+  description: "0-1 through 30+ · E-commerce, health, physical retail"
   image:
     x: "img/showcase/design-sprint.png"
     _2x: "img/showcase/design-sprint@2x.png"
@@ -73,7 +73,7 @@ experience:
   items:
     - title: "CTO"
       company: "fête"
-      duration: "Nov 2025 - Present"
+      duration: "Nov 2025 - May 2026"
 
     - title: "VP of Technology"
       company: "Legacy"

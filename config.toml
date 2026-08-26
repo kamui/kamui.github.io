@@ -37,7 +37,7 @@ theme = "raditian-free-hugo-theme"
 
   [[menu.header]]
   name = "Resume"
-  URL = "/jack-chu_resume.pdf"
+  URL = "/jack-chu_resume-2026-08.pdf"
   weight = 4
 
 #  [[menu.header]]
@@ -58,7 +58,7 @@ theme = "raditian-free-hugo-theme"
 
   [[menu.footer]]
   name = "Resume"
-  URL = "/jack-chu_resume.pdf"
+  URL = "/jack-chu_resume-2026-08.pdf"
   weight = 4
 
 #  [[menu.footer]]

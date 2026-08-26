@@ -56,6 +56,11 @@ theme = "raditian-free-hugo-theme"
   URL = "#experience"
   weight = 3
 
+  [[menu.footer]]
+  name = "Resume"
+  URL = "/jack-chu_resume.pdf"
+  weight = 4
+
 #  [[menu.footer]]
 #  name = "Contact"
 #  URL = "#contact"

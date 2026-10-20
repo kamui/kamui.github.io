@@ -7,7 +7,7 @@ showcase:
   enable: true
   title: "Hello, I’m Jack."
   subtitle: "CTO / VP Engineering"
-  description: "0-1 through 30+ · E-commerce, health, physical retail"
+  description: "Build 0-1 products, modernize platforms, grow teams from 3 to 30+ · Health, e-commerce, retail"
   image:
     x: "img/showcase/design-sprint.png"
     _2x: "img/showcase/design-sprint@2x.png"

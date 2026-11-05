@@ -1,0 +1,12 @@
+{{ $resume := .Site.Data.homepage.resume }}
+<header class="topbar" data-topbar>
+  <a class="topbar__name" href="{{ "/" | relURL }}">Jack Chu</a>
+  <nav class="topbar__nav" aria-label="Sections">
+    <ul>
+      {{ range .Site.Menus.index }}
+      <li><a href="{{ "/" | relURL }}{{ .URL }}">{{ .Name }}</a></li>
+      {{ end }}
+      <li><a href="{{ $resume.URL }}">{{ $resume.label }}</a></li>
+    </ul>
+  </nav>
+</header>

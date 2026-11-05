@@ -1,0 +1,6 @@
+<svg class="rail__icon" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  {{- if eq . "resume" }}<path d="M3.75 1.75h5.5l3 3v9.5h-8.5z"/><path d="M9.25 1.75v3h3"/><path d="M6 8.25h4M6 10.75h4"/>
+  {{- else if eq . "github" }}<circle cx="4.75" cy="3.5" r="1.5"/><circle cx="4.75" cy="12.5" r="1.5"/><circle cx="11.25" cy="5" r="1.5"/><path d="M4.75 5v6"/><path d="M11.25 6.5c0 2.75-2.5 3.25-5.5 4.6"/>
+  {{- else if eq . "email" }}<rect x="1.75" y="3.25" width="12.5" height="9.5" rx="1"/><path d="m2.25 4 5.75 4.75L13.75 4"/>
+  {{- end }}
+</svg>

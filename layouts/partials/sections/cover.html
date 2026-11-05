@@ -1,0 +1,80 @@
+{{ $c := .Site.Data.homepage.cover }}
+{{ $contact := .Site.Data.homepage.contact }}
+{{ $resume := .Site.Data.homepage.resume }}
+{{ $tracks := slice }}
+{{ range .Site.Data.homepage.music }}{{ $tracks = $tracks | append (dict "title" .title "artist" .artist "src" (.src | relURL)) }}{{ end }}
+{{ $first := index $tracks 0 }}
+<section class="cover" id="top" aria-labelledby="cover-title">
+  <div class="cover__face">
+    <div class="rail" data-rail>
+      <a class="rail__logo" href="#top" aria-label="Jack Chu, back to top">Jack<br>Chu</a>
+      <nav class="rail__nav" aria-label="Primary">
+        <ul>
+          {{ range .Site.Menus.index }}
+          <li><a href="{{ "/" | relURL }}{{ .URL }}">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+      </nav>
+      <ul class="rail__links">
+        <li><a href="{{ $resume.URL }}">{{ partial "rail-icon.html" "resume" }}{{ $resume.label }} (PDF)</a></li>
+        <li><a href="{{ $contact.github }}" target="_blank" rel="noopener">{{ partial "rail-icon.html" "github" }}GitHub</a></li>
+        <li><a href="mailto:{{ $contact.email }}">{{ partial "rail-icon.html" "email" }}Email</a></li>
+      </ul>
+    </div>
+
+    <p class="nowbar">
+      <a class="nowbar__now" href="#now"><strong>Now</strong> {{ $c.now }}</a>
+      <span class="nowbar__sep" aria-hidden="true"></span>
+      <button class="nowbar__track" type="button" data-play aria-pressed="false" disabled>
+        <svg class="nowbar__wave" viewBox="0 0 28 16" width="28" height="16" aria-hidden="true" focusable="false"><g fill="currentColor"><rect x="1" y="6" width="2" height="4" rx="1"/><rect x="5" y="3" width="2" height="10" rx="1"/><rect x="9" y="1" width="2" height="14" rx="1"/><rect x="13" y="4" width="2" height="8" rx="1"/><rect x="17" y="2" width="2" height="12" rx="1"/><rect x="21" y="5" width="2" height="6" rx="1"/><rect x="25" y="7" width="2" height="2" rx="1"/></g></svg>
+        <span data-track-title>{{ $first.title }} · {{ $first.artist }}</span>
+      </button>
+      <span class="nowbar__sep" aria-hidden="true"></span>
+      <a class="nowbar__resume" href="{{ $resume.URL }}">View resume</a>
+      <span class="nowbar__sep" aria-hidden="true"></span>
+      <button class="script-toggle" type="button" data-script-toggle aria-pressed="false" aria-label="Japanese text" hidden><span lang="ja">JP</span> / <span>EN</span></button>
+    </p>
+
+    <div class="cover__mark">
+      <button class="cd-player" type="button" data-player data-play data-tracks="{{ $tracks | jsonify }}" aria-pressed="false" aria-label="Music: “{{ $first.title }}” by {{ $first.artist }}" title="“{{ $first.title }}” by {{ $first.artist }}" disabled>{{ partial "cd.html" . }}</button>
+    </div>
+  </div>
+
+  <div class="obi obi--cover" data-obi data-script="en">
+    <div class="obi__title">
+      <h1 id="cover-title">
+        <span class="obi__name">{{ $c.name }}</span>
+        <span class="obi__role">{{ range $i, $l := $c.roleLines }}{{ if $i }}<br>{{ end }}{{ $l }}{{ end }}</span>
+      </h1>
+      <p class="obi__welcome v" lang="ja" title="{{ $c.welcomeEn }}">{{ range $i, $l := $c.welcomeLines }}{{ if $i }}<br>{{ end }}{{ $l }}{{ end }}</p>
+    </div>
+
+    <div class="obi__cols">
+      <p class="obi__intro"><span class="swap"><span class="swap__jp" lang="ja" aria-hidden="true">{{ range $i, $l := $c.introJa }}{{ if $i }}<br>{{ end }}{{ $l }}{{ end }}</span><span class="swap__en">{{ range $i, $l := $c.introLines }}{{ if $i }}<br>{{ end }}{{ $l }}{{ end }}</span></span></p>
+
+      <div class="obi__catalog" aria-hidden="true">
+        <span class="obi__catno v">{{ $c.catalog }}</span>
+        <span class="obi__stereo">Stereo</span>
+        <span class="obi__box">NYC</span>
+        <span class="obi__date">{{ now.Format "01·02·2006" }}</span>
+        <span class="obi__pc"><span>P</span><span>C</span></span>
+      </div>
+
+      <ol class="obi__tracks" aria-label="Tracklist">
+        {{ range $i, $e := .Site.Data.homepage.experience.items }}
+        <li class="v"><span class="tcy">{{ printf "%02d" (add $i 1) }}</span> <span class="swap"><span class="swap__jp" lang="ja" aria-hidden="true">{{ $e.ja }}</span><span class="swap__en">{{ $e.company }} · {{ $e.title }}</span></span></li>
+        {{ end }}
+        {{ range $i, $p := .Site.Data.homepage.projects.items }}
+        <li class="v obi__bonus"><span class="tcy">B{{ add $i 1 }}</span> <span class="swap"><span class="swap__jp" lang="ja" aria-hidden="true">{{ $p.ja }}</span><span class="swap__en">{{ $p.name }}</span></span></li>
+        {{ end }}
+      </ol>
+
+      <p class="obi__legal">
+        <span class="obi__made v">Manufactured in {{ $c.location }}</span>
+        <span class="obi__copy v">© {{ now.Format "2006" }} {{ $c.imprint }}</span>
+      </p>
+
+      {{ partialCached "barcode.html" . }}
+    </div>
+  </div>
+</section>

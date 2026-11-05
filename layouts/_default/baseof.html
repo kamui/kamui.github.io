@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{ partial "head.html" . }}
+<title>{{ block "title" . }}{{ .Site.Data.homepage.head.title }}{{ end }}</title>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+{{ partial "topbar.html" . }}
+<main id="main" tabindex="-1">
+{{ block "main" . }}{{ end }}
+</main>
+{{ $js := resources.Get "js/site.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+</body>
+</html>

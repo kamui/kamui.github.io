@@ -1,0 +1,25 @@
+{{ $contact := .Site.Data.homepage.contact }}
+{{ $resume := .Site.Data.homepage.resume }}
+<section class="obi obi--closing" id="elsewhere" aria-labelledby="elsewhere-title" data-obi>
+  <div class="obi__title">
+    <h2 class="obi__name" id="elsewhere-title">Elsewhere</h2>
+    <ul class="obi__links">
+      <li><a href="mailto:{{ $contact.email }}">{{ $contact.email }}</a></li>
+      <li><a href="{{ $contact.github }}" target="_blank" rel="noopener">GitHub{{ partial "icon-external.html" . }}</a></li>
+      <li><a href="{{ $contact.linkedin }}" target="_blank" rel="noopener">LinkedIn{{ partial "icon-external.html" . }}</a></li>
+      <li><a href="{{ $resume.URL }}">{{ $resume.label }} (PDF)</a></li>
+    </ul>
+  </div>
+
+  <div class="obi__cols">
+    <ul class="obi__credits" aria-label="Credits">
+      {{ range .Site.Data.homepage.music }}
+      <li class="v">Music: <a href="{{ .url }}" target="_blank" rel="noopener">“{{ .title }}” by {{ .artist }}</a></li>
+      <li class="v">Licensed <a href="{{ .licenseUrl }}" target="_blank" rel="noopener">{{ .license }}</a></li>
+      {{ end }}
+      <li class="v">{{ .Site.Params.copyright }}</li>
+    </ul>
+    <p class="obi__colophon v">Set in Six Caps, Barlow Condensed and Barlow</p>
+    {{ partialCached "barcode.html" . }}
+  </div>
+</section>

@@ -1,13 +1,12 @@
 # jackchu.com
 
-This repository contains the Hugo site for [jackchu.com](https://jackchu.com/). It uses the [Raditian Free Hugo Theme](https://github.com/radity/raditian-free-hugo-theme) and deploys to GitHub Pages.
+This repository contains the Hugo site for [jackchu.com](https://jackchu.com/). The layouts, styles and fonts live in this repository (`layouts/`, `assets/`, `static/`), with page content in `data/homepage.yml`. It deploys to GitHub Pages.
 
 ## Run the site locally
 
-Clone the theme submodule, then start the Hugo development server:
+Start the Hugo development server:
 
 ```sh
-git submodule update --init --recursive
 hugo server
 ```
 

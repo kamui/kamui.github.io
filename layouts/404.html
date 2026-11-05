@@ -1,0 +1,17 @@
+{{ define "title" }}Track not found | Jack Chu{{ end }}
+{{ define "main" }}
+{{ $resume := .Site.Data.homepage.resume }}
+<section class="missing" aria-labelledby="missing-title">
+  <div class="missing__face">{{ partial "cd.html" . }}</div>
+  <div class="obi obi--missing">
+    <div class="obi__title">
+      <h1 class="obi__name" id="missing-title">Not found</h1>
+      <p class="missing__lede">This track isn’t on the album. It may have moved, or the link may be mistyped.</p>
+      <ul class="obi__links">
+        <li><a href="{{ "/" | relURL }}">Back to the start</a></li>
+        <li><a href="{{ $resume.URL }}">{{ $resume.label }} (PDF)</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+{{ end }}

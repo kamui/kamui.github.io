@@ -1,95 +1,30 @@
 baseURL = "https://jackchu.com/"
 locale = "en-us"
-theme = "raditian-free-hugo-theme"
+disableKinds = ["taxonomy", "term"]
 
-# Plugins
-[params.plugins]
-
-  # CSS Plugins
-  [[params.plugins.css]]
-  URL = "css/main.css"
-  [[params.plugins.css]]
-  URL = "css/rad-icons.css"
-  [[params.plugins.css]]
-  URL = "css/custom.css"
-
-  # JS Plugins
-  [[params.plugins.js]]
-  URL = "js/rad-animations.js"
-  [[params.plugins.js]]
-  URL = "js/sticky-header.js"
-  [[params.plugins.js]]
-  URL = "js/library/fontfaceobserver.js"
-
-
-# navigation
 [menu]
 
-  [[menu.header]]
+  [[menu.index]]
   name = "About"
   URL = "#about"
-  weight = 2
+  weight = 1
 
-  [[menu.header]]
+  [[menu.index]]
   name = "Experience"
   URL = "#experience"
-  weight = 3
-
-  [[menu.header]]
-  name = "Projects"
-  URL = "#projects"
-  weight = 4
-
-  [[menu.header]]
-  name = "Resume"
-  URL = "https://kamui.github.io/resume/pdf"
-  weight = 5
-
-#  [[menu.header]]
-#  name = "Contact"
-#  URL = "#contact"
-#  weight = 4
-
-
-  [[menu.footer]]
-  name = "About"
-  URL = "#about"
   weight = 2
 
-  [[menu.footer]]
-  name = "Experience"
-  URL = "#experience"
-  weight = 3
-
-  [[menu.footer]]
+  [[menu.index]]
   name = "Projects"
   URL = "#projects"
+  weight = 3
+
+  [[menu.index]]
+  name = "Elsewhere"
+  URL = "#elsewhere"
   weight = 4
-
-  [[menu.footer]]
-  name = "Resume"
-  URL = "https://kamui.github.io/resume/pdf"
-  weight = 5
-
-#  [[menu.footer]]
-#  name = "Contact"
-#  URL = "#contact"
-#  weight = 4
-
 
 [params]
 
-  sections = ["showcase", "about", "experience", "projects", "education"]
-
   googleTagManagerID = "GTM-M76TRDR" # Google Analytics works with Google Tag Manager
-
-  [params.logo]
-    text1 = "Jack"
-    text2 = "Chu"
-
-  [params.footer]
-      copyright = "© Jack Chu. All rights reserved."
-      [params.footer.radity_logo]
-        x = "img/general/design-and-code-radity.png"
-        _2x = "img/general/design-and-code-radity@2x.png"
-        alt = "Design & Code - Radity"
+  copyright = "© Jack Chu. All rights reserved."

@@ -1,0 +1,25 @@
+{{ if .Site.Data.homepage.projects.enable }}
+<section id="projects" class="section section--border-bottom rad-animation-group">
+    <div class="container">
+        <div class="row rad-fade-down">
+            <div class="col-12">
+                <h2>{{ .Site.Data.homepage.projects.title }}</h2>
+                <div class="row pt-2 pt-md-4">
+                    {{ range .Site.Data.homepage.projects.items }}
+                    <div class="col-12 col-sm-6 mb-4 mb-sm-0">
+                        <div class="experience">
+                            <div class="experience__date">{{ .kind }}</div>
+                            <div class="experience__title">{{ .name }}</div>
+                            <p class="mt-2 mb-2">{{ .blurb }}</p>
+                            <div class="experience__company">
+                                {{ range $i, $link := .links }}{{ if $i }} · {{ end }}<a href="{{ $link.URL }}" target="_blank" rel="noopener">{{ $link.text }}</a>{{ end }}
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

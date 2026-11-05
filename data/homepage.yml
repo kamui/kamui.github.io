@@ -43,10 +43,6 @@ about:
     Later, I found that building teams and leadership was even more fun and challenging, but also let me scale up my ability impact the product and the business.
     </p>
     '
-  button:
-    icon: "icon-smile-fill"
-    btnText: "About Me"
-    URL: "https://www.linkedin.com/in/jack-chu"
   image:
     x: "img/who-am-i/jack-picture.png"
     _2x: "img/who-am-i/jack-picture@2x.png"
@@ -60,15 +56,11 @@ education:
       year: "2004-2007"
       degree: "Computer Information Systems (CIS) BBA"
 
-    - university: "New York University - Polytechnic School of Engineering"
-      year: "1997-1999"
-      degree: "Computer Science"
-
 # experience
 experience:
   enable: true
   title: "Experience"
-  description: "Over 28+ years of experience in Technology, 18+ years as an Engineer, 10+ years as a people manager and technology leader. Most of my career has been in E-commerce, but also have some experience in health/wellness, but I love doing things I've never done before and branching out!"
+  description: "Startup engineering leader. I build engineering organizations, with product and design alongside, and ship the product while doing it. CTO or VP at four companies over the last eight years. I still architect and code, these days more with AI agents. Mostly e-commerce and omnichannel retail, more recently health and wellness."
   button:
     icon: "icon-linkedin-fill"
     btnText: "Linkedin"
@@ -77,23 +69,51 @@ experience:
   items:
     - title: "CTO"
       company: "fête"
+      blurb: "Early-stage AI gifting startup, built AI-first with a team of 6."
       duration: "Nov 2025 - May 2026"
 
     - title: "VP of Technology"
       company: "Legacy"
+      blurb: "At-home fertility, sperm testing and freezing."
       duration: "Jan 2024 - June 2025"
 
     - title: "CTO"
       company: "Modern Age"
+      blurb: "Longevity and aging wellness clinics in NYC; built the tech org from zero to 21."
       duration: "Sep 2021 - Dec 2022"
 
     - title: "VP of Engineering"
       company: "Away"
+      blurb: "DTC luggage brand; grew engineering from 3 consultants to 30+."
       duration: "Oct 2018 - Mar 2021"
 
     - title: "Director of Engineering"
       company: "Bonobos"
+      blurb: "Men's apparel brand, acquired by Walmart in 2017."
       duration: "Jan 2015 - Oct 2018"
+# projects
+projects:
+  enable: true
+  title: "Projects"
+  items:
+    - name: "Retriable"
+      kind: "Open source · Ruby gem"
+      blurb: "A simple DSL to retry failed code blocks with randomized exponential backoff, over 419 million downloads on RubyGems."
+      links:
+        - text: "GitHub"
+          URL: "https://github.com/kamui/retriable"
+        - text: "RubyGems"
+          URL: "https://rubygems.org/gems/retriable"
+
+    - name: "Code Review Bench"
+      kind: "Open source · Benchmark"
+      blurb: "An open benchmark comparing LLM code review setups on real open-source pull requests, measuring findings, cost and false alarms."
+      links:
+        - text: "Explore the results"
+          URL: "https://jackchu.com/code-review-bench/"
+        - text: "GitHub"
+          URL: "https://github.com/kamui/code-review-bench"
+
 # # Client & Work
 # client_and_work:
 #   title: "Clients & Works"

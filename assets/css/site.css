@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Six Caps";
-  src: url("/fonts/six-caps.woff2") format("woff2");
+  font-family: "Ostrich Sans";
+  src: url("/fonts/ostrich-sans-heavy.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
 }
@@ -85,7 +85,7 @@
   --white: #faf0e6;
   --hair: rgba(197, 6, 42, 0.28);
 
-  --font-display: "Six Caps", "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-display: "Ostrich Sans", "Barlow Condensed", "Arial Narrow", sans-serif;
   --font-label: "Barlow Condensed", "Obi JP", "Arial Narrow", sans-serif;
   --font-nav: "Barlow Semi Condensed", "Arial Narrow", sans-serif;
   --font-text: "Barlow", "Helvetica Neue", Arial, sans-serif;
@@ -585,7 +585,7 @@ main:focus {
 /* Obi band */
 
 .obi {
-  --name-size: clamp(6.5rem, 3rem + 10vw, 12rem);
+  --name-size: min(clamp(6.5rem, 3rem + 10vw, 12rem), max(4.5rem, 45vw - 6rem));
   position: relative;
   display: grid;
   gap: 32px;
@@ -1057,6 +1057,11 @@ main:focus {
     align-self: start;
     position: sticky;
     top: calc(var(--bar-h) + 32px);
+    container-type: inline-size;
+  }
+
+  .track__title {
+    font-size: min(clamp(5rem, 3rem + 6vw, 9rem), 26cqi);
   }
 }
 

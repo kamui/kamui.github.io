@@ -43,7 +43,7 @@
   <div class="obi obi--cover" data-obi data-script="en">
     <div class="obi__title">
       <h1 id="cover-title">
-        <span class="obi__name">{{ $c.name }}</span>
+        <span class="obi__name">{{ range $i, $w := split $c.name " " }}{{ if $i }} {{ end }}<span>{{ $w }}</span>{{ end }}</span>
         <span class="obi__role">{{ range $i, $l := $c.roleLines }}{{ if $i }}<br>{{ end }}{{ $l }}{{ end }}</span>
       </h1>
       <p class="obi__welcome v" lang="ja" title="{{ $c.welcomeEn }}">{{ range $i, $l := $c.welcomeLines }}{{ if $i }}<br>{{ end }}{{ $l }}{{ end }}</p>

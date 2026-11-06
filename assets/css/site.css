@@ -616,6 +616,10 @@ main:focus {
   color: var(--cream);
 }
 
+.obi__name > span {
+  display: block;
+}
+
 .obi__role {
   font: 500 1.125rem/1.2 var(--font-label);
   letter-spacing: 0.04em;
@@ -841,14 +845,13 @@ main:focus {
   }
 }
 
-/* On phones the cover obi is one swipeable band, so it can sit flush on the bottom edge. */
+/* On phones the cover obi is one row, so it can sit flush on the bottom edge. */
 @media (max-width: 899px) {
   .obi--cover {
     display: flex;
     align-items: flex-start;
     gap: 28px;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
+    overflow-x: clip;
   }
 
   .obi--cover > *,
@@ -884,6 +887,10 @@ main:focus {
 
   .obi--cover .obi__cols {
     gap: 14px;
+  }
+
+  .obi--cover .obi__legal {
+    display: none;
   }
 }
 

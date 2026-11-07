@@ -1,25 +1,31 @@
 {{ $contact := .Site.Data.homepage.contact }}
 {{ $resume := .Site.Data.homepage.resume }}
+{{ $c := .Site.Data.homepage.cover }}
 <section class="obi obi--closing" id="elsewhere" aria-labelledby="elsewhere-title" data-obi>
-  <div class="obi__title">
-    <h2 class="obi__name" id="elsewhere-title">Credits</h2>
-    <ul class="obi__links">
-      <li><a href="mailto:{{ $contact.email }}">{{ $contact.email }}</a></li>
-      <li><a href="{{ $contact.github }}" target="_blank" rel="noopener">GitHub{{ partial "icon-external.html" . }}</a></li>
-      <li><a href="{{ $contact.linkedin }}" target="_blank" rel="noopener">LinkedIn{{ partial "icon-external.html" . }}</a></li>
-      <li><a href="{{ $resume.URL }}">{{ $resume.label }} (PDF)</a></li>
-    </ul>
-  </div>
+  <h2 class="obi__name" id="elsewhere-title">Credits</h2>
 
-  <div class="obi__cols">
-    <ul class="obi__credits" aria-label="Credits">
-      {{ range .Site.Data.homepage.music }}
-      <li class="v">Music: <a href="{{ .url }}" target="_blank" rel="noopener">“{{ .title }}” by {{ .artist }}</a></li>
-      <li class="v">Licensed <a href="{{ .licenseUrl }}" target="_blank" rel="noopener">{{ .license }}</a></li>
-      {{ end }}
-      <li class="v">Cover photo by {{ .Site.Data.homepage.cover.photographer }}</li>
-      <li class="v">{{ .Site.Params.copyright }}</li>
-    </ul>
-    <p class="obi__colophon v">Set in Ostrich Sans, Archivo, Barlow,<br>Barlow Condensed, Barlow Semi Condensed,<br>Noto Sans JP and Kaisei Decol</p>
+  <div class="obi__cols credits">
+    <div class="credits__group">
+      <h3>Contact</h3>
+      <dl class="credits__list">
+        <div><dt>Email</dt><dd><a href="mailto:{{ $contact.email }}">{{ $contact.email }}</a></dd></div>
+        <div><dt>GitHub</dt><dd><a href="{{ $contact.github }}" target="_blank" rel="noopener">{{ replaceRE "^https?://(www\\.)?" "" $contact.github }}{{ partial "icon-external.html" . }}</a></dd></div>
+        <div><dt>LinkedIn</dt><dd><a href="{{ $contact.linkedin }}" target="_blank" rel="noopener">{{ replaceRE "^https?://(www\\.)?" "" $contact.linkedin }}{{ partial "icon-external.html" . }}</a></dd></div>
+        <div><dt>{{ $resume.label }}</dt><dd><a href="{{ $resume.URL }}">{{ replaceRE "^https?://(www\\.)?|/$" "" $resume.URL }}</a> (PDF)</dd></div>
+      </dl>
+    </div>
+
+    <div class="credits__group">
+      <h3>Artwork &amp; sound</h3>
+      <dl class="credits__list">
+        <div><dt>Cover photo</dt><dd>{{ $c.photographer }}</dd></div>
+        {{ range .Site.Data.homepage.music }}
+        <div><dt>Music</dt><dd><a href="{{ .url }}" target="_blank" rel="noopener">“{{ .title }}”</a> by {{ .artist }}, licensed <a href="{{ .licenseUrl }}" target="_blank" rel="noopener">{{ .license }}</a></dd></div>
+        {{ end }}
+        <div><dt>Typefaces</dt><dd>Ostrich Sans, Archivo, Barlow, Barlow Condensed, Barlow Semi Condensed, Noto Sans JP and Kaisei Decol</dd></div>
+      </dl>
+    </div>
+
+    <p class="credits__fine"><span>{{ .Site.Params.copyright }}</span> <span>{{ $c.catalog }}</span></p>
   </div>
 </section>

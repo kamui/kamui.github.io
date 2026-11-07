@@ -1852,7 +1852,11 @@ main:focus {
   .words .swap,
   .words__sp {
     --d: calc(var(--i) * var(--stagger, 140ms));
-    transition: width 460ms var(--ease-out) var(--d), font-size 460ms var(--ease-out) var(--d);
+    transition: width 460ms var(--ease-out) var(--d);
+  }
+
+  .words__sp {
+    transition-property: font-size;
   }
 
   [data-script="en"] .words .swap__jp,

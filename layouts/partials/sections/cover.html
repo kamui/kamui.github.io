@@ -4,7 +4,23 @@
 {{ $tracks := slice }}
 {{ range .Site.Data.homepage.music }}{{ $tracks = $tracks | append (dict "title" .title "artist" .artist "src" (.src | relURL)) }}{{ end }}
 {{ $first := index $tracks 0 }}
-<section class="cover" id="top" aria-labelledby="cover-title">
+<svg class="print-defs" width="0" height="0" aria-hidden="true" focusable="false">
+  <filter id="ink" x="-1%" y="-1%" width="102%" height="102%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="1" seed="4" result="edge"/>
+    <feDisplacementMap in="SourceGraphic" in2="edge" scale="0.8" xChannelSelector="R" yChannelSelector="G"/>
+    <feGaussianBlur stdDeviation="0.3"/>
+  </filter>
+  <filter id="ink-fine" x="-1%" y="-1%" width="102%" height="102%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="1" seed="4" result="edge"/>
+    <feDisplacementMap in="SourceGraphic" in2="edge" scale="0.7" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+    <feGaussianBlur in="rough" stdDeviation="0.12" result="soft"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.35" numOctaves="2" seed="11"/>
+    <feColorMatrix type="matrix" values="0.32 0 0 0 0.79 0.32 0 0 0 0.79 0.32 0 0 0 0.79 0 0 0 0 1" result="mottle"/>
+    <feBlend in="soft" in2="mottle" mode="multiply"/>
+    <feComposite in2="soft" operator="in"/>
+  </filter>
+</svg>
+<section class="cover" id="top" aria-labelledby="cover-title" data-script="en">
   <div class="cover__face">
     <div class="rail" data-rail>
       <a class="rail__logo" href="#top" aria-label="Jack Chu, back to top">Jack<br>Chu</a>
@@ -23,40 +39,47 @@
     </div>
 
     <p class="nowbar">
-      <a class="nowbar__now" href="#now"><strong>Now</strong> {{ $c.now }}</a>
-      <span class="nowbar__sep" aria-hidden="true"></span>
       <button class="nowbar__track" type="button" data-play aria-pressed="false" disabled>
         <svg class="nowbar__wave" viewBox="0 0 28 16" width="28" height="16" aria-hidden="true" focusable="false"><g fill="currentColor"><rect x="1" y="6" width="2" height="4" rx="1"/><rect x="5" y="3" width="2" height="10" rx="1"/><rect x="9" y="1" width="2" height="14" rx="1"/><rect x="13" y="4" width="2" height="8" rx="1"/><rect x="17" y="2" width="2" height="12" rx="1"/><rect x="21" y="5" width="2" height="6" rx="1"/><rect x="25" y="7" width="2" height="2" rx="1"/></g></svg>
         <span data-track-title>{{ $first.title }} · {{ $first.artist }}</span>
       </button>
       <span class="nowbar__sep" aria-hidden="true"></span>
       <a class="nowbar__resume" href="{{ $resume.URL }}">View resume</a>
-      <span class="nowbar__sep" aria-hidden="true"></span>
-      <button class="script-toggle" type="button" data-script-toggle aria-pressed="false" aria-label="Japanese text" hidden><span lang="ja">JP</span> / <span>EN</span></button>
     </p>
+
+    {{ with $c.image }}
+    <figure class="riso cover__art" aria-hidden="true"><img src="{{ .x | relURL }}" srcset="{{ .x | relURL }} 800w, {{ ._2x | relURL }} 1137w" sizes="100vw" width="1137" height="950" alt="" loading="lazy"></figure>
+    {{ end }}
+
+    <p class="cover__title">{{ partial "words.html" (dict "en" $c.storyEn "ja" $c.storyJa) }}</p>
 
     <div class="cover__mark">
       <button class="cd-player" type="button" data-player data-play data-tracks="{{ $tracks | jsonify }}" aria-pressed="false" aria-label="Music: “{{ $first.title }}” by {{ $first.artist }}" title="“{{ $first.title }}” by {{ $first.artist }}" disabled>{{ partial "cd.html" . }}</button>
     </div>
   </div>
 
-  <div class="obi obi--cover" data-obi data-script="en">
+  <div class="obi obi--cover" data-obi>
+    <p class="obi__spine" aria-hidden="true"><span>{{ $c.catalog }}</span><span>{{ $c.name }}</span><span>{{ delimit $c.roleLines " " }}</span><span>{{ $c.obiLabel }}</span></p>
+
     <div class="obi__title">
       <h1 id="cover-title">
         <span class="obi__name">{{ range $i, $w := split $c.name " " }}{{ if $i }} {{ end }}<span>{{ $w }}</span>{{ end }}</span>
-        <span class="obi__role">{{ range $i, $l := $c.roleLines }}{{ if $i }}<br>{{ end }}{{ $l }}{{ end }}</span>
+        <span class="obi__role-ja" lang="ja" aria-hidden="true">{{ $c.roleJa }}</span>
+        <span class="obi__role">{{ range $i, $l := $c.roleLines }}{{ if $i }} <br>{{ end }}{{ $l }}{{ end }}</span>
       </h1>
-      <p class="obi__welcome v" lang="ja" title="{{ $c.welcomeEn }}">{{ range $i, $l := $c.welcomeLines }}{{ if $i }}<br>{{ end }}{{ $l }}{{ end }}</p>
+      <p class="obi__catch"><span class="obi__catch-ja v" lang="ja">{{ $c.catchCopy }}</span></p>
     </div>
 
     <div class="obi__cols">
-      <p class="obi__intro"><span class="swap"><span class="swap__jp" lang="ja" aria-hidden="true">{{ range $i, $l := $c.introJa }}{{ if $i }}<br>{{ end }}{{ $l }}{{ end }}</span><span class="swap__en">{{ range $i, $l := $c.introLines }}{{ if $i }}<br>{{ end }}{{ $l }}{{ end }}</span></span></p>
+      {{ partial "format-marks.html" . }}
+
+      <p class="obi__intro">{{ partial "words.html" (dict "en" (delimit $c.introLines " ") "ja" $c.introJaWords) }}</p>
+
+      <p class="obi__featuring" aria-hidden="true">featuring: {{ range $i, $e := .Site.Data.homepage.experience.items }}{{ if $i }}, {{ end }}{{ $e.company }}{{ end }}</p>
 
       <div class="obi__catalog" aria-hidden="true">
-        <span class="obi__catno v">{{ $c.catalog }}</span>
-        <span class="obi__stereo">Stereo</span>
+        <span class="obi__catline"><span class="obi__catno v">{{ $c.catalog }}</span> <span class="obi__price">{{ $c.price }}<span class="obi__tax">{{ $c.priceTax }}</span></span></span>
         <span class="obi__box">NYC</span>
-        <span class="obi__date">{{ now.Format "01·02·2006" }}</span>
         <span class="obi__pc"><span>P</span><span>C</span></span>
       </div>
 
@@ -71,7 +94,10 @@
 
       <p class="obi__legal">
         <span class="obi__made v">Manufactured in {{ $c.location }}</span>
-        <span class="obi__copy v">© {{ now.Format "2006" }} {{ $c.imprint }}</span>
+        <span class="obi__copy v">{{ $c.obiLabel }}</span>
+        <span class="obi__stereo" aria-hidden="true">Stereo</span>
+        <svg class="obi__star" viewBox="0 0 20 20" width="12" height="12" aria-hidden="true" focusable="false"><path d="M10 1.5 12.4 7.3 18.6 7.8 13.9 11.9 15.3 18 10 14.8 4.7 18 6.1 11.9 1.4 7.8 7.6 7.3Z" fill="currentColor"/></svg>
+        <span class="obi__date" aria-hidden="true">{{ now.Format "01-02-06" }}</span>
       </p>
 
       {{ partialCached "barcode.html" . }}

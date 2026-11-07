@@ -1,35 +1,39 @@
 {{ $p := .Site.Data.homepage.projects }}
-<section class="track projects" id="projects" aria-labelledby="projects-title">
-  <div class="track__side">
-    <h2 class="track__title" id="projects-title">{{ $p.title }}</h2>
-  </div>
-  <div class="track__body">
-    <div class="singles">
-      {{ range $i, $item := $p.items }}
-      {{ $n := add $i 1 }}
-      <article class="single" aria-labelledby="single-{{ $n }}">
-        <div class="single__art" aria-hidden="true">
-          {{ partial "project-mark.html" .mark }}
-          <span class="single__name">{{ .name }}</span>
-          <span class="single__cat v">{{ .catalog }}</span>
-        </div>
-        <div class="single__info">
-          <h3 id="single-{{ $n }}">{{ .name }}</h3>
-          <p class="single__kind">{{ .kind }}</p>
-          <p class="single__blurb">{{ .blurb }}</p>
-          {{ with .readouts }}
-          <dl class="single__stats">
-            {{ range . }}<div><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>{{ end }}
-          </dl>
-          {{ end }}
-          <ul class="single__links">
-            {{ range .links }}
-            <li><a href="{{ .URL }}" target="_blank" rel="noopener">{{ .text }}{{ partial "icon-external.html" . }}</a></li>
-            {{ end }}
-          </ul>
-        </div>
-      </article>
+{{ $c := .Site.Data.homepage.cover }}
+<section class="sheet projects" id="projects" aria-labelledby="projects-title">
+  <header class="sheet__head">
+    <h2 class="sheet__title" id="projects-title">{{ $p.title }}</h2>
+    <p class="sheet__credit"><span lang="ja">朱丹成</span> {{ $c.name }}</p>
+  </header>
+
+  <div class="sheet__panels">
+    {{ range $i, $item := $p.items }}
+    {{ $n := add $i 1 }}
+    <article class="sheet__panel single" aria-labelledby="single-{{ $n }}">
+      <div class="single__head">
+        <span class="single__n" aria-hidden="true">B{{ $n }}</span>
+        <h3 id="single-{{ $n }}">{{ .name }}</h3>
+        {{ partial "project-mark.html" .mark }}
+      </div>
+      <p class="single__ja" lang="ja" aria-hidden="true">{{ .ja }}</p>
+      <p class="single__kind">{{ .kind }}</p>
+      <p class="single__blurb">{{ .blurb }}</p>
+      {{ with .readouts }}
+      <dl class="single__stats">
+        {{ range . }}<div><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>{{ end }}
+      </dl>
       {{ end }}
-    </div>
+      <ul class="single__links">
+        {{ range .links }}
+        <li><a href="{{ .URL }}" target="_blank" rel="noopener">{{ .text }}{{ partial "icon-external.html" . }}</a></li>
+        {{ end }}
+      </ul>
+    </article>
+    {{ end }}
   </div>
+
+  <footer class="sheet__foot" aria-hidden="true">
+    <span>© {{ now.Format "2006" }} {{ $c.imprint }}. Manufactured in {{ $c.location }}.</span>
+    <span>{{ $c.catalog }}</span>
+  </footer>
 </section>

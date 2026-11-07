@@ -3,36 +3,48 @@
   const animated = root.classList.contains("obi-ready");
 
   const topbar = document.querySelector("[data-topbar]");
-  const rail = document.querySelector("[data-rail]");
-  if (topbar && rail) {
-    new IntersectionObserver(([entry]) => {
-      topbar.classList.toggle("is-on", !entry.isIntersecting);
-    }).observe(rail);
+  const markers = document.querySelectorAll("[data-rail], .nowbar");
+  if (topbar && markers.length) {
+    const visible = new Set();
+    const observer = new IntersectionObserver((entries) => {
+      for (const { target, isIntersecting } of entries) {
+        if (isIntersecting) visible.add(target);
+        else visible.delete(target);
+      }
+      topbar.classList.toggle("is-on", visible.size === 0);
+    });
+    markers.forEach((marker) => observer.observe(marker));
   }
 
   const sleeve = document.querySelector("[data-script]");
-  const toggle = document.querySelector("[data-script-toggle]");
-  let chosen = false;
-  const setScript = (script) => {
-    sleeve.dataset.script = script;
-    sleeve.dataset.settled = "";
-    toggle.setAttribute("aria-pressed", String(script === "jp"));
-  };
+  if (sleeve && animated) sleeve.dataset.script = "jp";
+
+  const wordBoxes = document.querySelectorAll(".words");
+  const measureWords = () =>
+    wordBoxes.forEach((box) => {
+      box.querySelectorAll(".swap").forEach((slot) => {
+        const [jp, en] = slot.children;
+        slot.style.setProperty("--w-jp", `${jp.getBoundingClientRect().width}px`);
+        slot.style.setProperty("--w-en", `${en.getBoundingClientRect().width}px`);
+      });
+      box.style.minHeight = "";
+      const heights = ["jp", "en"].map((script) => {
+        box.dataset.measure = script;
+        return box.getBoundingClientRect().height;
+      });
+      box.dataset.measure = "";
+      box.style.minHeight = `${Math.max(...heights)}px`;
+      box.getBoundingClientRect();
+      delete box.dataset.measure;
+    });
+  if (wordBoxes.length) {
+    measureWords();
+    document.fonts.ready.then(measureWords);
+    addEventListener("resize", measureWords);
+  }
 
   const tracks = document.querySelector(".obi__tracks");
   if (tracks) [...tracks.children].forEach((li, i) => li.style.setProperty("--i", i));
-
-  if (sleeve && toggle) {
-    if (animated) {
-      sleeve.dataset.script = "jp";
-      toggle.setAttribute("aria-pressed", "true");
-    }
-    toggle.hidden = false;
-    toggle.addEventListener("click", () => {
-      chosen = true;
-      setScript(sleeve.dataset.script === "jp" ? "en" : "jp");
-    });
-  }
 
   const player = document.querySelector("[data-player]");
   if (player) {
@@ -78,9 +90,10 @@
 
   const wrapped = (obi) => {
     obi.classList.add("is-wrapped");
-    if (animated && sleeve && obi.contains(sleeve)) {
+    if (animated && sleeve && sleeve.contains(obi)) {
       setTimeout(() => {
-        if (!chosen) setScript("en");
+        sleeve.dataset.script = "en";
+        sleeve.dataset.settled = "";
       }, 2200);
     }
   };

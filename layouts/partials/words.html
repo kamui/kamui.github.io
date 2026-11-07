@@ -1,0 +1,1 @@
+<span class="visually-hidden">{{ .en }}</span><span class="words" aria-hidden="true">{{ range $i, $w := split .en " " }}{{ if $i }}<span class="words__sp" style="--i: {{ $i }}"> </span>{{ end }}<span class="swap" style="--i: {{ $i }}"><span class="swap__jp" lang="ja">{{ index $.ja $i }}</span><span class="swap__en">{{ $w }}</span></span>{{ end }}</span>

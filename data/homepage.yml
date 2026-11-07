@@ -4,13 +4,14 @@ head:
 
 cover:
   name: "Jack Chu"
-  welcomeLines:
-    - "朱丹成のウェブサイトへ"
-    - "ようこそ"
-  welcomeEn: "Welcome to Jack Chu’s website"
+  catchCopy: "累計４億ＤＬ突破！"
+  storyJa: ["API", "か", "ら", "組", "織", "づくり", "へ"]
+  storyEn: "From the API to the org chart"
+  photographer: "Veronica Grijalva"
   roleLines:
     - "CTO / VP"
     - "of Engineering"
+  roleJa: "CTO・エンジニアリング担当VP"
   location: "Brooklyn, NY"
   introLines:
     - "I lead engineering teams"
@@ -22,9 +23,15 @@ cover:
     - "今も自ら"
     - "設計し、コードを書く。"
     - "最近はＡＩエージェントと一緒に作っている。"
-  catalog: "JC-001"
+  introJaWords: ["スタート", "アップで", "開発", "チームを", "率い、", "今も", "自ら", "設計し、", "コードを", "書く。", "最近は", "ＡＩ", "エージェント", "と", "一緒に", "作って", "い", "る。"]
+  catalog: "CHU-5678"
+  price: "税込定価¥900"
+  priceTax: "(税抜価格¥874)"
   imprint: "Kamui"
-  now: "Open to work"
+  obiLabel: "Kam Music"
+  image:
+    x: "img/cover/jack-yukata.jpg"
+    _2x: "img/cover/jack-yukata@2x.jpg"
 
 resume:
   label: "Resume"

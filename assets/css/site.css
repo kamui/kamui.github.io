@@ -2234,7 +2234,7 @@ main:focus {
     grid-area: role;
     justify-self: start;
     margin-bottom: 6px;
-    font: 700 calc(min(1.125rem, (100vw - 2 * var(--pad)) / 23) * 0.85)/1.2 "Kaisei Decol", "Obi JP", var(--font-jp);
+    font: 700 calc(min(1.125rem, (100vw - 2 * var(--pad)) / 23) * 0.85)/1.2 "Obi JP", var(--font-jp);
     font-feature-settings: "palt";
     letter-spacing: 0.02em;
   }

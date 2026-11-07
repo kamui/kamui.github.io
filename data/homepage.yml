@@ -23,7 +23,6 @@ cover:
   price: "税込定価¥900"
   priceTax: "(税抜価格¥874)"
   priceEn: "List price ¥900 including tax (¥874 before tax)"
-  imprint: "Kamui"
   obiLabel: "Kam Music"
   image:
     x: "img/cover/jack-yukata.jpg"

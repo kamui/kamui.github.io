@@ -5,22 +5,22 @@ disableKinds = ["taxonomy", "term"]
 [menu]
 
   [[menu.index]]
-  name = "About"
+  name = "Liner Notes"
   URL = "#about"
   weight = 1
 
   [[menu.index]]
-  name = "Experience"
+  name = "Tracklist"
   URL = "#experience"
   weight = 2
 
   [[menu.index]]
-  name = "Projects"
+  name = "Side Projects"
   URL = "#projects"
   weight = 3
 
   [[menu.index]]
-  name = "Elsewhere"
+  name = "Credits"
   URL = "#elsewhere"
   weight = 4
 

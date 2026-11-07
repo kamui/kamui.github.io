@@ -38,7 +38,7 @@ contact:
   linkedin: "https://www.linkedin.com/in/jack-chu"
 
 experience:
-  title: "Experience"
+  title: "Tracklist"
   description: "Startup engineering leader. I build engineering organizations, with product and design alongside, and ship the product while doing it. CTO or VP at four companies over the last eight years. I still architect and code, these days more with AI agents. Mostly e-commerce and omnichannel retail, more recently health and wellness."
   items:
     - title: "CTO"
@@ -80,7 +80,7 @@ experience:
       duration: "Jan 2015 - Oct 2018"
 
 projects:
-  title: "Projects"
+  title: "Side Projects"
   items:
     - name: "Retriable"
       catalog: "JC-S01"
@@ -112,7 +112,7 @@ projects:
           URL: "https://github.com/kamui/code-review-bench"
 
 about:
-  title: "About"
+  title: "Liner Notes"
   notes:
     - "My passion is building amazing teams that build just as amazing digital products. My background in software engineering started in web based backend APIs and then later expanded to web frontend expertise and systems architecture."
     - "Later, I found that building teams and leadership was even more fun and challenging, but also let me scale up my ability to impact the product and the business."

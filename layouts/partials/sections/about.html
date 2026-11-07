@@ -1,29 +1,32 @@
 {{ $a := .Site.Data.homepage.about }}
 {{ $c := .Site.Data.homepage.cover }}
-<section class="sheet about" id="about" aria-labelledby="about-title">
-  <header class="sheet__head">
-    <h2 class="sheet__title" id="about-title">{{ $a.title }}</h2>
-    <p class="sheet__credit"><span lang="ja" title="{{ $c.name }}">朱丹成</span> {{ $c.name }}</p>
-  </header>
+<section class="booklet" id="about" aria-labelledby="about-title">
+  <div class="booklet__page booklet__page--verso">
+    <figure class="riso booklet__photo">
+      <img
+        src="{{ $a.image.x | relURL }}"
+        srcset="{{ $a.image.x | relURL }} 1x, {{ $a.image._2x | relURL }} 2x"
+        width="512" height="384"
+        alt="{{ $a.image.alt }}"
+        loading="lazy">
+    </figure>
+    <header class="booklet__title">
+      <h2 class="sheet__title" id="about-title">{{ $a.title }}</h2>
+      <p class="sheet__credit"><span lang="ja" title="{{ $c.name }}">朱丹成</span> {{ $c.name }}</p>
+    </header>
+    <p class="booklet__folio" aria-hidden="true">2</p>
+  </div>
 
-  <div class="sheet__panels">
-    <div class="sheet__panel notes__art">
-      <figure class="riso">
-        <img
-          src="{{ $a.image.x | relURL }}"
-          srcset="{{ $a.image.x | relURL }} 1x, {{ $a.image._2x | relURL }} 2x"
-          width="512" height="384"
-          alt="{{ $a.image.alt }}"
-          loading="lazy">
-      </figure>
-    </div>
+  <div class="booklet__page booklet__page--recto">
+    <p class="booklet__head" aria-hidden="true"><span>{{ $c.name }} · {{ $a.title }}</span><span>{{ $c.catalog }}</span></p>
 
-    <div class="sheet__panel prose">
-      <p class="lyric__en">{{ delimit $c.introLines " " }}</p>
+    <div class="essay">
+      <p class="essay__lede">{{ delimit $c.introLines " " }}</p>
       {{ range $a.notes }}<p>{{ . }}</p>{{ end }}
+      <p class="essay__sign">{{ $c.name }}, {{ $c.location }}</p>
     </div>
 
-    <div class="sheet__panel now" id="now">
+    <div class="now" id="now">
       <div class="now__head">
         <h3>{{ $a.now.title }}</h3>
         <p class="now__updated">Updated {{ $a.now.updated }}</p>
@@ -32,5 +35,7 @@
         {{ range $a.now.items }}<li>{{ . | markdownify }}</li>{{ end }}
       </ol>
     </div>
+
+    <p class="booklet__folio" aria-hidden="true">3</p>
   </div>
 </section>

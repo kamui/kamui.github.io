@@ -26,6 +26,13 @@
       <p class="essay__sign">{{ $c.name }}, {{ $c.location }}</p>
     </div>
 
+    <div class="offwork">
+      <h3>{{ $a.offWork.title }}</h3>
+      <dl class="offwork__list">
+        {{ range $a.offWork.credits }}<div><dt>{{ .role }}</dt><dd>{{ .detail }}</dd></div>{{ end }}
+      </dl>
+    </div>
+
     <div class="now" id="now">
       <div class="now__head">
         <h3>{{ $a.now.title }}</h3>

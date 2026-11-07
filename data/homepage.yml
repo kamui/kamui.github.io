@@ -116,7 +116,17 @@ about:
   notes:
     - "My passion is building amazing teams that build just as amazing digital products. My background in software engineering started in web based backend APIs and then later expanded to web frontend expertise and systems architecture."
     - "Later, I found that building teams and leadership was even more fun and challenging, but also let me scale up my ability to impact the product and the business."
-    - "Outside of work, I play electric guitar through a mix of new and old effects pedals, plus modeling and capture gear. I also build and mod mechanical keyboards, cook, and listen to a lot of Japanese rock and pop."
+  offWork:
+    title: "Outside of work"
+    credits:
+      - role: "Guitar"
+        detail: "Electric, through a mix of new and old effects pedals, plus modeling and capture gear"
+      - role: "Keyboards"
+        detail: "Mechanical, built and modded"
+      - role: "Kitchen"
+        detail: "Cooking"
+      - role: "Heavy rotation"
+        detail: "Japanese rock and pop"
   now:
     title: "Now"
     updated: "November 2026"

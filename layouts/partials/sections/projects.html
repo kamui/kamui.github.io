@@ -3,7 +3,7 @@
 <section class="sheet projects" id="projects" aria-labelledby="projects-title">
   <header class="sheet__head">
     <h2 class="sheet__title" id="projects-title">{{ $p.title }}</h2>
-    <p class="sheet__credit"><span lang="ja">朱丹成</span> {{ $c.name }}</p>
+    <p class="sheet__credit"><span lang="ja" title="{{ $c.name }}">朱丹成</span> {{ $c.name }}</p>
   </header>
 
   <div class="sheet__panels">
@@ -15,7 +15,7 @@
         <h3 id="single-{{ $n }}">{{ .name }}</h3>
         {{ partial "project-mark.html" .mark }}
       </div>
-      <p class="single__ja" lang="ja" aria-hidden="true">{{ .ja }}</p>
+      <p class="single__ja" lang="ja" aria-hidden="true" title="{{ .name }}">{{ .ja }}</p>
       <p class="single__kind">{{ .kind }}</p>
       <p class="single__blurb">{{ .blurb }}</p>
       {{ with .readouts }}

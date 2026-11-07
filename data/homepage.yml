@@ -5,6 +5,7 @@ head:
 cover:
   name: "Jack Chu"
   catchCopy: "累計４億ＤＬ突破！"
+  catchCopyEn: "Over 400 million downloads!"
   storyJa: ["API", "か", "ら", "組", "織", "づくり", "へ"]
   storyEn: "From the API to the org chart"
   photographer: "Veronica Grijalva"
@@ -21,6 +22,7 @@ cover:
   catalog: "CHU-5678"
   price: "税込定価¥900"
   priceTax: "(税抜価格¥874)"
+  priceEn: "List price ¥900 including tax (¥874 before tax)"
   imprint: "Kamui"
   obiLabel: "Kam Music"
   image:

@@ -16,7 +16,7 @@
         <span class="tracklist__n" aria-hidden="true">{{ add $i 1 }}</span>
         <h3 class="tracklist__company">{{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $item.company }}{{ partial "icon-external.html" $ }}</a>{{ else }}{{ .company }}{{ end }} <span class="tracklist__role">{{ .title }}</span></h3>
         <p class="tracklist__dates">({{ .duration }})</p>
-        <p class="tracklist__ja" lang="ja" aria-hidden="true">{{ .ja }}</p>
+        <p class="tracklist__ja" lang="ja" aria-hidden="true" title="{{ .company }} · {{ .title }}">{{ .ja }}</p>
         <p class="tracklist__blurb">{{ .blurb }}</p>
       </li>
       {{ end }}

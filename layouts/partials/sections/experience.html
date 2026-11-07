@@ -10,17 +10,43 @@
       <p class="back__desc">{{ $e.description }}</p>
     </header>
 
-    <ol class="tracklist">
-      {{ range $i, $item := $e.items }}
-      <li class="tracklist__row">
-        <span class="tracklist__n" aria-hidden="true">{{ add $i 1 }}</span>
-        <h3 class="tracklist__company">{{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $item.company }}{{ partial "icon-external.html" $ }}</a>{{ else }}{{ .company }}{{ end }} <span class="tracklist__role">{{ .title }}</span></h3>
-        <p class="tracklist__dates">({{ .duration }})</p>
-        <p class="tracklist__ja" lang="ja" aria-hidden="true" title="{{ .company }} · {{ .title }}">{{ .ja }}</p>
-        <p class="tracklist__blurb">{{ .blurb }}</p>
-      </li>
-      {{ end }}
-    </ol>
+    {{ $months := dict "jan" 1 "feb" 2 "mar" 3 "apr" 4 "may" 5 "jun" 6 "jul" 7 "aug" 8 "sep" 9 "oct" 10 "nov" 11 "dec" 12 }}
+    {{ $total := 0 }}
+    <div class="tracklist">
+      <ol class="tracklist__list">
+        {{ range $i, $item := $e.items }}
+        {{ $len := 0 }}
+        {{ range $k, $end := split .duration " - " }}
+          {{ $p := split $end " " }}
+          {{ $m := add (mul (int (index $p 1)) 12) (index $months (lower (substr (index $p 0) 0 3))) }}
+          {{ $len = cond (eq $k 0) (sub $len $m) (add $len $m) }}
+        {{ end }}
+        {{ $total = add $total $len }}
+        <li class="tracklist__row">
+          <span class="tracklist__n" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</span>
+          <h3 class="tracklist__company">{{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $item.company }}{{ partial "icon-external.html" $ }}</a>{{ else }}{{ .company }}{{ end }} <span class="tracklist__role">{{ .title }}</span></h3>
+          <span class="tracklist__time" aria-hidden="true" title="{{ div $len 12 }} yr {{ mod $len 12 }} mo">{{ printf "%d:%02d" (div $len 12) (mod $len 12) }}</span>
+          <p class="tracklist__ja" lang="ja" aria-hidden="true" title="{{ .company }} · {{ .title }}">{{ .ja }}</p>
+          <p class="tracklist__blurb"><span class="tracklist__dates">{{ .duration }}</span> {{ .blurb }}</p>
+        </li>
+        {{ end }}
+      </ol>
+
+      <p class="tracklist__total" aria-hidden="true">Total time <span title="{{ div $total 12 }} yr {{ mod $total 12 }} mo">{{ printf "%d:%02d" (div $total 12) (mod $total 12) }}</span></p>
+
+      <h3 class="tracklist__bonus-title">Bonus tracks</h3>
+      <ol class="tracklist__list tracklist__list--bonus">
+        {{ range $i, $item := .Site.Data.homepage.projects.items }}
+        <li class="tracklist__row">
+          <span class="tracklist__n" aria-hidden="true">B{{ add $i 1 }}</span>
+          <p class="tracklist__company"><a href="#single-{{ add $i 1 }}">{{ .name }}</a> <span class="tracklist__role">{{ .kind }}</span></p>
+          <span class="tracklist__time" aria-hidden="true">{{ .catalog }}</span>
+        </li>
+        {{ end }}
+      </ol>
+
+      <p class="tracklist__legend">Running times in years:months.</p>
+    </div>
 
     <div class="back__credits">
       <div class="education" id="education">

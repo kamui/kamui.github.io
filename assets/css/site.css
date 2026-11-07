@@ -935,12 +935,12 @@ main:focus {
 
 @media (prefers-reduced-motion: no-preference) {
   .obi-ready [data-obi] {
-    clip-path: inset(0 100% 0 0);
+    clip-path: inset(-48px 100% -48px 0);
     transition: clip-path 900ms var(--ease-out);
   }
 
   .obi-ready [data-obi].is-wrapped {
-    clip-path: inset(0 0 0 0);
+    clip-path: inset(-48px -40% -48px 0);
   }
 
   .obi-ready [data-obi] .obi__cols > * {
@@ -956,7 +956,10 @@ main:focus {
   }
 
   /* Failsafes: if the script never runs, the cover and its credits still appear. */
-  .obi-ready .obi--cover,
+  .obi-ready .obi--cover {
+    animation: obi-unclip 1ms 4s forwards;
+  }
+
   .obi-ready .obi--cover .obi__cols > * {
     animation: obi-show 1ms 4s forwards;
   }
@@ -994,9 +997,14 @@ main:focus {
 
 @keyframes obi-show {
   to {
-    clip-path: inset(0 0 0 0);
     opacity: 1;
     transform: none;
+  }
+}
+
+@keyframes obi-unclip {
+  to {
+    clip-path: inset(-48px -40% -48px 0);
   }
 }
 
@@ -1747,7 +1755,16 @@ main:focus {
 
 .obi--cover {
   filter: url(#ink);
+  background: none;
   color: var(--obi-white);
+}
+
+/* Only the paper tilts: a perspective transform on the obi itself resamples and blurs its type. */
+.obi__paper {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--obi-band);
 }
 
 .obi--cover :is(.obi__name, .obi__catch) {
@@ -1956,7 +1973,14 @@ main:focus {
     gap: var(--gap) 0;
     padding: calc(var(--u) * 4) calc(var(--u) * 2) calc(var(--u) * 3) 0;
     text-align: center;
-    box-shadow: calc(var(--u) * 0.6) 0 calc(var(--u) * 1.8) rgb(17 17 17 / 0.4);
+    filter: url(#ink) drop-shadow(calc(var(--u) * 0.3) 0 calc(var(--u) * 0.25) rgb(17 17 17 / 0.5)) drop-shadow(calc(var(--u) * 2) calc(var(--u) * 0.6) calc(var(--u) * 2.2) rgb(17 17 17 / 0.45));
+  }
+
+  .obi--cover .obi__paper {
+    background-image: linear-gradient(90deg, transparent var(--spine), rgb(250 240 230 / 0.07) calc(var(--spine) + var(--u) * 1.5), transparent calc(var(--spine) + var(--u) * 7), transparent 70%, rgb(17 17 17 / 0.22));
+    box-shadow: inset calc(var(--u) * -0.22) 0 0 color-mix(in srgb, var(--obi-white) 80%, transparent);
+    transform: perspective(calc(var(--u) * 150)) rotateY(-3deg);
+    transform-origin: var(--spine) 50%;
   }
 
   .obi--cover :is(.obi__title, .obi__cols, h1, .obi__catch, .format-marks, .obi__legal) {
@@ -1967,7 +1991,7 @@ main:focus {
     display: none;
   }
 
-  .obi--cover > :not(.obi__spine),
+  .obi--cover > :not(.obi__spine, .obi__paper),
   .obi--cover .obi__cols > *,
   .obi--cover :is(h1, .obi__catch, .obi__legal) > * {
     margin-left: calc(var(--u) * 2);
@@ -2200,6 +2224,14 @@ main:focus {
     gap: 6px 12px;
     padding: 12px var(--pad);
     overflow-x: clip;
+    filter: url(#ink) drop-shadow(0 -2px 2px rgb(17 17 17 / 0.5)) drop-shadow(0 -8px 14px rgb(17 17 17 / 0.4));
+  }
+
+  .obi--cover .obi__paper {
+    background-image: linear-gradient(0deg, transparent, rgb(250 240 230 / 0.06) 18%, transparent 45%, transparent 70%, rgb(17 17 17 / 0.22));
+    box-shadow: inset 0 1.5px 0 color-mix(in srgb, var(--obi-white) 80%, transparent);
+    transform: perspective(900px) rotateX(-3deg);
+    transform-origin: 50% 100%;
   }
 
   .obi--cover :is(.obi__title, .obi__cols, .format-marks) {

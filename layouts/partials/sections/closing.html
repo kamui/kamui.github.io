@@ -17,9 +17,9 @@
       <li class="v">Music: <a href="{{ .url }}" target="_blank" rel="noopener">“{{ .title }}” by {{ .artist }}</a></li>
       <li class="v">Licensed <a href="{{ .licenseUrl }}" target="_blank" rel="noopener">{{ .license }}</a></li>
       {{ end }}
+      <li class="v">Cover photo by {{ .Site.Data.homepage.cover.photographer }}</li>
       <li class="v">{{ .Site.Params.copyright }}</li>
     </ul>
-    <p class="obi__colophon v">Set in Ostrich Sans, Barlow Condensed and Barlow</p>
-    {{ partialCached "barcode.html" . }}
+    <p class="obi__colophon v">Set in Ostrich Sans, Archivo, Barlow,<br>Barlow Condensed, Barlow Semi Condensed,<br>Noto Sans JP and Kaisei Decol</p>
   </div>
 </section>

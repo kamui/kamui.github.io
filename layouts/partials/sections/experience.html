@@ -1,32 +1,44 @@
 {{ $e := .Site.Data.homepage.experience }}
 {{ $ed := .Site.Data.homepage.education }}
-<section class="track experience" id="experience" aria-labelledby="experience-title">
-  <div class="track__side">
-    <h2 class="track__title" id="experience-title">{{ $e.title }}</h2>
-  </div>
-  <div class="track__body">
-    <div class="prose">
-      <p>{{ $e.description }}</p>
-      <p><a class="text-link" href="{{ .Site.Data.homepage.contact.linkedin }}" target="_blank" rel="noopener">Full history on LinkedIn{{ partial "icon-external.html" . }}</a></p>
-    </div>
+{{ $c := .Site.Data.homepage.cover }}
+<section class="back experience" id="experience" aria-labelledby="experience-title">
+  <p class="back__spine" aria-hidden="true"><span>{{ $c.name }}</span><span>{{ $e.title }}</span><span>{{ $c.catalog }}</span></p>
+
+  <div class="back__face">
+    <header class="back__head">
+      <h2 class="sheet__title" id="experience-title">{{ $e.title }}</h2>
+      <p class="back__desc">{{ $e.description }}</p>
+    </header>
 
     <ol class="tracklist">
       {{ range $i, $item := $e.items }}
       <li class="tracklist__row">
-        <span class="tracklist__n" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</span>
-        <h3 class="tracklist__company">{{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $item.company }}{{ partial "icon-external.html" $ }}</a>{{ else }}{{ .company }}{{ end }}</h3>
-        <p class="tracklist__role">{{ .title }}</p>
-        <p class="tracklist__dates">{{ .duration }}</p>
+        <span class="tracklist__n" aria-hidden="true">{{ add $i 1 }}</span>
+        <h3 class="tracklist__company">{{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $item.company }}{{ partial "icon-external.html" $ }}</a>{{ else }}{{ .company }}{{ end }} <span class="tracklist__role">{{ .title }}</span></h3>
+        <p class="tracklist__dates">({{ .duration }})</p>
+        <p class="tracklist__ja" lang="ja" aria-hidden="true">{{ .ja }}</p>
         <p class="tracklist__blurb">{{ .blurb }}</p>
       </li>
       {{ end }}
     </ol>
 
-    <div class="education" id="education">
-      <h3 class="education__title">{{ $ed.title }}</h3>
-      {{ range $ed.items }}
-      <p class="education__row"><strong>{{ .university }}</strong><span>{{ .degree }}</span><span class="education__dates">{{ .year }}</span></p>
-      {{ end }}
+    <div class="back__credits">
+      <div class="education" id="education">
+        <h3 class="education__title">{{ $ed.title }}</h3>
+        {{ range $ed.items }}
+        <p class="education__row"><strong>{{ .university }}</strong> <span>{{ .degree }}</span> <span class="education__dates">{{ .year }}</span></p>
+        {{ end }}
+      </div>
+      <a class="text-link" href="{{ .Site.Data.homepage.contact.linkedin }}" target="_blank" rel="noopener">Full history on LinkedIn{{ partial "icon-external.html" . }}</a>
     </div>
+
+    <footer class="back__foot" aria-hidden="true">
+      <span class="back__label">{{ $c.imprint }}</span>
+      <p class="back__fine">© {{ now.Format "2006" }} {{ $c.imprint }}. Manufactured in {{ $c.location }}.</p>
+      <span class="back__cat">{{ $c.catalog }}</span>
+      {{ partialCached "barcode.html" . }}
+    </footer>
   </div>
+
+  <p class="back__spine back__spine--end" aria-hidden="true"><span>{{ $c.name }}</span><span>{{ $e.title }}</span><span>{{ $c.catalog }}</span></p>
 </section>

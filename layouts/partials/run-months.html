@@ -1,0 +1,11 @@
+{{- $names := dict "jan" 1 "feb" 2 "mar" 3 "apr" 4 "may" 5 "jun" 6 "jul" 7 "aug" 8 "sep" 9 "oct" 10 "nov" 11 "dec" 12 }}
+{{- $len := 0 }}
+{{- range $k, $end := split . " - " }}
+  {{- $m := add (mul now.Year 12) (int (now.Format "1")) }}
+  {{- if ne $end "Present" }}
+    {{- $p := split $end " " }}
+    {{- $m = add (mul (int (index $p 1)) 12) (index $names (lower (substr (index $p 0) 0 3))) }}
+  {{- end }}
+  {{- $len = cond (eq $k 0) (sub $len $m) (add $len $m) }}
+{{- end }}
+{{- return $len }}

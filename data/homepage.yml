@@ -80,11 +80,9 @@ experience:
       duration: "Jan 2015 - Oct 2018"
 
 projects:
-  title: "Side Projects"
   items:
     - name: "Retriable"
-      catalog: "JC-S01"
-      mark: "retry"
+      duration: "Feb 2012 - Present"
       ja: "リトライアブル"
       kind: "Open source · Ruby gem"
       blurb: "A simple DSL to retry failed code blocks with randomized exponential backoff, over 419 million downloads on RubyGems."
@@ -100,8 +98,7 @@ projects:
           URL: "https://rubygems.org/gems/retriable"
 
     - name: "Code Review Bench"
-      catalog: "JC-S02"
-      mark: "bench"
+      duration: "Sep 2026 - Present"
       ja: "コードレビュー・ベンチ"
       kind: "Open source · Benchmark"
       blurb: "An open benchmark comparing LLM code review setups on real open-source pull requests, measuring findings, cost and false alarms."

@@ -74,8 +74,6 @@
     <div class="obi__cols">
       {{ partial "format-marks.html" . }}
 
-      <p class="obi__intro">{{ partial "words.html" (dict "en" (delimit $c.introLines " ") "ja" $c.introJaWords) }}</p>
-
       <p class="obi__featuring" aria-hidden="true">featuring: {{ range $i, $e := .Site.Data.homepage.experience.items }}{{ if $i }}, {{ end }}{{ $e.company }}{{ end }}</p>
 
       <div class="obi__catalog" aria-hidden="true">

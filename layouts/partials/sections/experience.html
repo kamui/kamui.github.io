@@ -34,7 +34,7 @@
 
     <footer class="back__foot" aria-hidden="true">
       <span class="back__label">{{ $c.obiLabel }}</span>
-      <p class="back__fine">℗ &amp; © {{ now.Format "2006" }}</p>
+      <p class="back__fine">{{ .Site.Params.copyright }}</p>
       <span class="back__cat">{{ $c.catalog }}</span>
       {{ partialCached "barcode.html" . }}
     </footer>

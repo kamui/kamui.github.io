@@ -18,11 +18,6 @@ cover:
     - "at startups,"
     - "and I still architect"
     - "and code, these days more with AI agents."
-  introJa:
-    - "スタートアップで開発チームを率い、"
-    - "今も自ら"
-    - "設計し、コードを書く。"
-    - "最近はＡＩエージェントと一緒に作っている。"
   introJaWords: ["スタート", "アップで", "開発", "チームを", "率い、", "今も", "自ら", "設計し、", "コードを", "書く。", "最近は", "ＡＩ", "エージェント", "と", "一緒に", "作って", "い", "る。"]
   catalog: "CHU-5678"
   price: "税込定価¥900"

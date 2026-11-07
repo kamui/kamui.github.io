@@ -19,10 +19,7 @@
     </div>
 
     <div class="sheet__panel prose">
-      <div class="lyric">
-        <p class="lyric__en">{{ range $i, $l := $c.introLines }}{{ if $i }}<br>{{ end }}{{ $l }}{{ end }}</p>
-        <p class="lyric__ja v" lang="ja">{{ range $i, $l := $c.introJa }}{{ if $i }}<br>{{ end }}{{ $l }}{{ end }}</p>
-      </div>
+      <p class="lyric__en">{{ range $i, $l := $c.introLines }}{{ if $i }}<br>{{ end }}{{ $l }}{{ end }}</p>
       {{ range $a.notes }}<p>{{ . }}</p>{{ end }}
     </div>
 

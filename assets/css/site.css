@@ -1164,22 +1164,9 @@ main:focus {
   mix-blend-mode: multiply;
 }
 
-.lyric {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: start;
-  gap: 20px;
-}
-
 .lyric__en {
   font: 500 1.375rem/1.35 var(--font-label);
   letter-spacing: 0.01em;
-}
-
-.lyric__ja {
-  font: 500 0.9375rem/2 var(--font-jp);
-  letter-spacing: 0.08em;
-  color: var(--ink-2);
 }
 
 .prose {

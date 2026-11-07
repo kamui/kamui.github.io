@@ -8,11 +8,15 @@ disableKinds = ["taxonomy", "term"]
   name = "Liner Notes"
   URL = "#about"
   weight = 1
+  [menu.index.params]
+    short = "Liner"
 
   [[menu.index]]
   name = "Tracklist"
   URL = "#experience"
   weight = 2
+  [menu.index.params]
+    short = "Tracks"
 
   [[menu.index]]
   name = "Credits"

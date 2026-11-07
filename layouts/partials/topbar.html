@@ -3,8 +3,8 @@
   <a class="topbar__name" href="{{ "/" | relURL }}">Jack Chu</a>
   <nav class="topbar__nav" aria-label="Sections">
     <ul>
-      {{ range .Site.Menus.index }}
-      <li><a href="{{ "/" | relURL }}{{ .URL }}">{{ .Name }}</a></li>
+      {{ range $item := .Site.Menus.index }}
+      <li><a href="{{ "/" | relURL }}{{ .URL }}">{{ with .Params.short }}<span class="topbar__full">{{ $item.Name }}</span><span class="topbar__short">{{ . }}</span>{{ else }}{{ .Name }}{{ end }}</a></li>
       {{ end }}
       <li><a href="{{ $resume.URL }}">{{ $resume.label }}</a></li>
     </ul>

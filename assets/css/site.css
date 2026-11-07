@@ -293,6 +293,24 @@ main:focus {
   text-decoration: underline;
 }
 
+.topbar__short {
+  display: none;
+}
+
+@media (max-width: 699px) {
+  .topbar__full {
+    display: none;
+  }
+
+  .topbar__short {
+    display: inline;
+  }
+
+  .topbar__nav a {
+    padding: 0 5px;
+  }
+}
+
 .js .topbar {
   position: fixed;
   left: 0;

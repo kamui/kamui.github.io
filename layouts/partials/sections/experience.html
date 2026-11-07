@@ -62,7 +62,10 @@
         <p class="education__row"><strong>{{ .university }}</strong> <span>{{ .degree }}</span> <span class="education__dates">{{ .year }}</span></p>
         {{ end }}
       </div>
-      <a class="text-link" href="{{ .Site.Data.homepage.contact.linkedin }}" target="_blank" rel="noopener">Full history on LinkedIn{{ partial "icon-external.html" . }}</a>
+      <p class="back__links">
+        <a class="text-link" href="{{ .Site.Data.homepage.contact.linkedin }}" target="_blank" rel="noopener">Full history on LinkedIn{{ partial "icon-external.html" . }}</a>
+        <a class="text-link" href="{{ .Site.Data.homepage.resume.URL }}">{{ .Site.Data.homepage.resume.label }} (PDF)</a>
+      </p>
     </div>
 
     <footer class="back__foot" aria-hidden="true">

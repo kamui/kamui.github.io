@@ -1601,6 +1601,11 @@ main:focus {
   gap: 18px;
 }
 
+.back__links {
+  display: grid;
+  justify-items: start;
+}
+
 .education__title {
   margin-bottom: 8px;
   font: 700 1rem/1.2 var(--font-label);

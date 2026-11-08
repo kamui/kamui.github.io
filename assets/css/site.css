@@ -533,7 +533,7 @@ main:focus {
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 900px), (orientation: landscape) and (max-height: 500px) {
   .cover {
     min-height: 100svh;
   }
@@ -786,7 +786,7 @@ main:focus {
   letter-spacing: 0.42em;
 }
 
-@media (min-width: 900px) and (max-height: 820px) {
+@media (min-width: 900px) and (max-height: 820px), (orientation: landscape) and (max-height: 500px) {
   .cover__face {
     padding-top: 3.4svh;
     padding-bottom: 1.6svh;
@@ -819,7 +819,7 @@ main:focus {
   }
 }
 
-@media (max-width: 899px) and (max-height: 740px) {
+@media (max-width: 899px) and (max-height: 740px) and (orientation: portrait), (max-width: 899px) and (min-height: 501px) and (max-height: 740px) {
   .cover__face {
     gap: 16px;
     padding-top: 20px;
@@ -860,7 +860,7 @@ main:focus {
 }
 
 /* On phones the cover obi is one row, so it can sit flush on the bottom edge. */
-@media (max-width: 899px) {
+@media (max-width: 899px) and (orientation: portrait), (max-width: 899px) and (min-height: 501px) {
   .obi--cover {
     display: flex;
     align-items: flex-start;
@@ -907,16 +907,18 @@ main:focus {
   }
 }
 
+@media (min-width: 900px), (orientation: landscape) and (max-height: 500px) {
+  .cover,
+  .obi--cover {
+    --name-size: clamp(4.5rem, min(3rem + 10vw, 13svh), 12rem);
+  }
+}
+
 @media (min-width: 900px) {
   .obi {
     grid-template-columns: auto minmax(0, 1fr);
     gap: clamp(28px, 3.5vw, 56px);
     padding: clamp(16px, 3.1svh, 36px) var(--pad) clamp(20px, 3.6svh, 44px);
-  }
-
-  .cover,
-  .obi--cover {
-    --name-size: clamp(4.5rem, min(3rem + 10vw, 13svh), 12rem);
   }
 
   .obi h1 {
@@ -2018,7 +2020,7 @@ main:focus {
 }
 
 /* The front of a 12cm case is square: the art fills it and the obi folds over its left edge, round the spine. */
-@media (min-width: 900px) {
+@media (min-width: 900px), (orientation: landscape) and (max-height: 500px) {
   .cover {
     --side: min(100svh, 100vw - 300px);
     --u: calc(var(--side) / 100);
@@ -2298,7 +2300,7 @@ main:focus {
 
 /* Cover, phones: the front of an 8cm single, art above a printed band. */
 
-@media (max-width: 899px) {
+@media (max-width: 899px) and (orientation: portrait), (max-width: 899px) and (min-height: 501px) {
   .cover {
     grid-template-rows: minmax(0, 1fr) auto;
   }

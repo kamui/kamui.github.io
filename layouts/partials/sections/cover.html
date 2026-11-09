@@ -1,8 +1,8 @@
-{{ $c := .Site.Data.homepage.cover }}
-{{ $contact := .Site.Data.homepage.contact }}
-{{ $resume := .Site.Data.homepage.resume }}
+{{ $c := hugo.Data.homepage.cover }}
+{{ $contact := hugo.Data.homepage.contact }}
+{{ $resume := hugo.Data.homepage.resume }}
 {{ $tracks := slice }}
-{{ range .Site.Data.homepage.music }}{{ $tracks = $tracks | append (dict "title" .title "artist" .artist "src" (.src | relURL)) }}{{ end }}
+{{ range hugo.Data.homepage.music }}{{ $tracks = $tracks | append (dict "title" .title "artist" .artist "src" (.src | relURL)) }}{{ end }}
 {{ $first := index $tracks 0 }}
 <svg class="print-defs" width="0" height="0" aria-hidden="true" focusable="false">
   <filter id="ink" x="-1%" y="-1%" width="102%" height="102%" color-interpolation-filters="sRGB">
@@ -74,7 +74,7 @@
     <div class="obi__cols">
       {{ partial "format-marks.html" . }}
 
-      <p class="obi__featuring" aria-hidden="true">featuring: {{ range $i, $e := .Site.Data.homepage.experience.items }}{{ if $i }}, {{ end }}{{ $e.company }}{{ end }}</p>
+      <p class="obi__featuring" aria-hidden="true">featuring: {{ range $i, $e := hugo.Data.homepage.experience.items }}{{ if $i }}, {{ end }}{{ $e.company }}{{ end }}</p>
 
       <div class="obi__catalog" aria-hidden="true">
         <span class="obi__catline"><span class="obi__catno v">{{ $c.catalog }}</span> <span class="obi__price" title="{{ $c.priceEn }}">{{ $c.price }}<span class="obi__tax">{{ $c.priceTax }}</span></span></span>
@@ -83,10 +83,10 @@
       </div>
 
       <ol class="obi__tracks" aria-label="Tracklist">
-        {{ range $i, $e := .Site.Data.homepage.experience.items }}
+        {{ range $i, $e := hugo.Data.homepage.experience.items }}
         <li class="v"><span class="tcy">{{ printf "%02d" (add $i 1) }}</span> <span class="swap"><span class="swap__jp" lang="ja" aria-hidden="true">{{ $e.ja }}</span><span class="swap__en">{{ $e.company }} · {{ $e.title }}</span></span></li>
         {{ end }}
-        {{ range $i, $p := .Site.Data.homepage.projects.items }}
+        {{ range $i, $p := hugo.Data.homepage.projects.items }}
         <li class="v obi__bonus"><span class="tcy">B{{ add $i 1 }}</span> <span class="swap"><span class="swap__jp" lang="ja" aria-hidden="true">{{ $p.ja }}</span><span class="swap__en">{{ $p.name }}</span></span></li>
         {{ end }}
       </ol>

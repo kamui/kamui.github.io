@@ -1,6 +1,6 @@
 {{ define "title" }}Track not found | Jack Chu{{ end }}
 {{ define "main" }}
-{{ $resume := .Site.Data.homepage.resume }}
+{{ $resume := hugo.Data.homepage.resume }}
 <section class="missing" aria-labelledby="missing-title">
   <div class="missing__face">{{ partial "cd.html" . }}</div>
   <div class="obi obi--missing">

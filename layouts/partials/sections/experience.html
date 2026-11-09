@@ -1,6 +1,6 @@
-{{ $e := .Site.Data.homepage.experience }}
-{{ $ed := .Site.Data.homepage.education }}
-{{ $c := .Site.Data.homepage.cover }}
+{{ $e := hugo.Data.homepage.experience }}
+{{ $ed := hugo.Data.homepage.education }}
+{{ $c := hugo.Data.homepage.cover }}
 <section class="back experience" id="experience" aria-labelledby="experience-title">
   <p class="back__spine" aria-hidden="true"><span>{{ $c.name }}</span><span>{{ $e.title }}</span><span>{{ $c.catalog }}</span></p>
 
@@ -30,7 +30,7 @@
 
       <h3 class="tracklist__bonus-title" id="projects">Bonus tracks</h3>
       <ol class="tracklist__list tracklist__list--bonus">
-        {{ range $i, $item := .Site.Data.homepage.projects.items }}
+        {{ range $i, $item := hugo.Data.homepage.projects.items }}
         {{ $len := partial "run-months.html" .duration }}
         <li class="tracklist__row">
           <span class="tracklist__n" aria-hidden="true">B{{ add $i 1 }}</span>
@@ -63,8 +63,8 @@
         {{ end }}
       </div>
       <p class="back__links">
-        <a class="text-link" href="{{ .Site.Data.homepage.contact.linkedin }}" target="_blank" rel="noopener">Full history on LinkedIn{{ partial "icon-external.html" . }}</a>
-        <a class="text-link" href="{{ .Site.Data.homepage.resume.URL }}">{{ .Site.Data.homepage.resume.label }} (PDF)</a>
+        <a class="text-link" href="{{ hugo.Data.homepage.contact.linkedin }}" target="_blank" rel="noopener">Full history on LinkedIn{{ partial "icon-external.html" . }}</a>
+        <a class="text-link" href="{{ hugo.Data.homepage.resume.URL }}">{{ hugo.Data.homepage.resume.label }} (PDF)</a>
       </p>
     </div>
 

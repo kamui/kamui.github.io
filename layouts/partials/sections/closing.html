@@ -1,6 +1,6 @@
-{{ $contact := .Site.Data.homepage.contact }}
-{{ $resume := .Site.Data.homepage.resume }}
-{{ $c := .Site.Data.homepage.cover }}
+{{ $contact := hugo.Data.homepage.contact }}
+{{ $resume := hugo.Data.homepage.resume }}
+{{ $c := hugo.Data.homepage.cover }}
 <section class="obi obi--closing" id="elsewhere" aria-labelledby="elsewhere-title" data-obi>
   <h2 class="obi__name" id="elsewhere-title">Credits</h2>
 
@@ -19,7 +19,7 @@
       <h3>Artwork &amp; sound</h3>
       <dl class="credits__list">
         <div><dt>Cover photo</dt><dd>{{ $c.photographer }}</dd></div>
-        {{ range .Site.Data.homepage.music }}
+        {{ range hugo.Data.homepage.music }}
         <div><dt>Music</dt><dd><a href="{{ .url }}" target="_blank" rel="noopener">“{{ .title }}”</a> by {{ .artist }}, licensed <a href="{{ .licenseUrl }}" target="_blank" rel="noopener">{{ .license }}</a></dd></div>
         {{ end }}
         <div><dt>Typefaces</dt><dd>Ostrich Sans, Archivo, Barlow, Barlow Condensed, Barlow Semi Condensed, Noto Sans JP and Kaisei Decol</dd></div>

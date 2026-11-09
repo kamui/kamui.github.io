@@ -48,7 +48,7 @@
     </p>
 
     {{ with $c.image }}
-    <figure class="riso cover__art" aria-hidden="true"><img src="{{ .x | relURL }}" srcset="{{ .x | relURL }} 800w, {{ ._2x | relURL }} 1137w" sizes="100vw" width="1137" height="950" alt="" loading="lazy"></figure>
+    <figure class="riso cover__art" aria-hidden="true"><img src="{{ .x | relURL }}" srcset="{{ .x | relURL }} 800w, {{ ._2x | relURL }} 1137w" sizes="100vw" width="1137" height="855" alt="" loading="lazy"></figure>
     {{ end }}
 
     <p class="cover__title">{{ partial "words.html" (dict "en" $c.storyEn "ja" $c.storyJa) }}</p>
